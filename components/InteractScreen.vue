@@ -1,17 +1,29 @@
 <template>
   <div class="screen w-full h-screen bg-black text-white flex justify-center items-center">
-    <div class="grid grid-flow-col auto-cols-max md:auto-cols-min gap-4">
-      <Card />
+    <div :class="`grid grid-cols-${config.cols} gap-2`">
+      <Card v-for="(card, index) in config.allCards" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  
+  props: {
+    config: {
+      type: Object,
+      default: () => ({
+        cols: 0,
+        allCards: [],
+      }),
+    },
+  },
+
+  data() {
+    return {
+      
+    }
+  },
 }
 </script>
 
-<style scoped>
- 
-</style>
+<style scoped></style>
