@@ -9,10 +9,10 @@ data() {
   return {
     statusMatch: "default",
     timer: 0,
+    startedAt: 0,
     config: {
       cols: 0,
       allCards: [],
-      startedAt: 0,
     },
   }
 },

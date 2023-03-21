@@ -1,5 +1,5 @@
 <template>
-  <div class="group h-16 w-16 [perpective: 1000px]">
+  <div class="group h-24 w-24 [perpective: 1000px]">
     <div @click="onFlip" :class="{ flipped: isFlip }"
       class="relative h-full w-full rounded-xl shadow-xl transition-all cursor-pointer duration-500 [transform-style:preserve-3d]">
       <div class="absolute inset-0 bg-white rounded-xl">
