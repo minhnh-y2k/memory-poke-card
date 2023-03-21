@@ -1,6 +1,6 @@
 <template>
   <div class="screen w-full h-screen bg-black text-white flex justify-center items-center">
-    <div :class="`grid grid-cols-${config.cols} gap-2`">
+    <div :class="`grid grid-cols-${config.cols} gap-4`">
       <Card v-for="(card, index) in config.allCards" />
     </div>
   </div>

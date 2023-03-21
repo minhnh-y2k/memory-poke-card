@@ -5,21 +5,17 @@
     <div class="modes mt-8 flex">
       <button @click="onStart(4, 4)" class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">4x4</span>
-        <span class="text-xl">Easy</span>
       </button>
       <button @click="onStart(4, 6)" class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">4x8</span>
-        <span class="text-xl">Normal</span>
       </button>
       <button @click="onStart(5, 10)" v-if="isDesktop"
         class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">5x10</span>
-        <span class="text-xl">Hard</span>
       </button>
       <button @click="onStart(6, 11)" v-if="isDesktop"
         class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">6x11</span>
-        <span class="text-xl">Super Hard</span>
       </button>
     </div>
   </div>
