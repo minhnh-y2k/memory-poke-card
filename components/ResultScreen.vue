@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full min-h-screen bg-black flex flex-col justify-center items-center text-white">
-    <h1 class="text-7xl md:text-8xl font-bold">Congratulations</h1>
+  <div class="container min-w-full min-h-screen flex flex-col justify-center items-center text-white">
+    <h1 class="text-7xl md:text-9xl font-bold">Congratulations</h1>
     <p class="text-4xl">Time: {{ formatTime(timer) }}</p>
     <button @click="onStartAgain"
       class="text-3xl p-3 mt-10 border-2 rounded-xl transition-all duration-300 hover:bg-white hover:text-black">
@@ -34,4 +34,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  background-image: linear-gradient(rgba(50, 61, 104, 0.5), rgba(44, 119, 118, 0.5)), url('../assets/images/bg_home.jpg');
+  background-size: cover;
+  background-position: top;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="screen">
+  <div class="container min-w-full min-h-screen flex justify-center items-center">
     <div class="grid gap-4" :class="`grid-cols-${config.cols}`">
       <Card v-for="(cardName, index) in config.allCards" @onFlip="onFlipCard($event)" :key="index"
         :card="{ id: index, value: cardName }" :ref="`card-${index}`" :flippedCards="flippedCards" />
@@ -60,12 +60,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.screen {
-  width: 100%;
-  min-height: 100vh;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  background-image: linear-gradient(rgba(50, 61, 104, 0.5), rgba(44, 119, 118, 0.5)), url('../assets/images/bg_play.jpg');
+  background-size: cover;
+  background-position: center;
 }
 </style>

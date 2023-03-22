@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   css: [
     'normalize.css',
-    '@/assets/styles/main.scss',
+    '@/assets/scss/main.scss',
   ],
   modules: [
     '@nuxtjs/tailwindcss',
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         sass: {
-          additionalData: '@import "@/assets/styles/_variables.sass"',
+          additionalData: '@import "@/assets/scss/_variables.sass"',
         },
       },
     },

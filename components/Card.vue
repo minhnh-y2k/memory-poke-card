@@ -8,7 +8,7 @@
       </div>
       <div
         class="flex justify-center items-center  absolute inset-0 bg-white rounded-xl shadow-sm [backface-visibility:hidden]">
-        <div class="card-back h-3/6 w-3/6 bg-cover bg-center bg-[url('@/assets/images/icon_back.png')]"></div>
+        <div class="card-back h-3/6 w-3/6 bg-cover bg-center"></div>
       </div>
     </div>
   </div>
@@ -56,5 +56,9 @@ export default {
 <style lang="scss" scoped>
 .flipped {
   transform: rotateY(180deg);
+}
+
+.card-back {
+  background-image: url('../assets/images/icon_back.png');
 }
 </style>
