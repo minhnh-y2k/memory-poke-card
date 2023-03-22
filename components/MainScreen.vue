@@ -3,6 +3,9 @@
     <h1>Memory Poke Card</h1>
     <p>Select mode to start game</p>
     <div class="modes">
+      <button @click="onStart(2, 2)">
+        <span>2x2</span>
+      </button>
       <button @click="onStart(4, 4)">
         <span>4x4</span>
       </button>
