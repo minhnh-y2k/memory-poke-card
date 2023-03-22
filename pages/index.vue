@@ -24,7 +24,7 @@ methods: {
     const allCards = [...fisrtHalfCards, ...secondHalfCards];
   
     this.config.cols = config.cols;
-    this.config.allCards = shuffleArray(allCards);
+    this.config.allCards = shuffleArray(shuffleArray(shuffleArray(allCards)));
     this.config.startedAt = new Date().getTime();
     this.statusMatch = "match";
   }

@@ -1,10 +1,10 @@
 <template>
   <div class="card">
     <div class="card-inner" @click="onFlip" :class="{ flipped: isFlip }">
-      <div class="card-face card-front">
+      <div class="card-face card-front shadow-sm">
         <nuxt-img class="flipped" :src="imageUrl" />
       </div>
-      <div class="card-face card-back">
+      <div class="card-face card-back shadow-sm">
         <div class="card-content"></div>
       </div>
     </div>
@@ -59,7 +59,7 @@ export default {
       border-radius: 0.75rem;
       background-color: #fff;
       border-radius: 0.75rem;
-      
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -68,7 +68,7 @@ export default {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        
+
         height: 50%;
         width: 50%;
       }

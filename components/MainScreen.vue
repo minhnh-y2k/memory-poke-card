@@ -42,20 +42,24 @@ export default {
   background-color: black;
   color: white;
   text-align: center;
+
   h1 {
     font-size: 5rem;
     text-transform: uppercase;
     margin-bottom: 3rem;
     line-height: 1;
   }
+
   p {
     font-size: 2rem;
   }
+
   .modes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
     button {
       background-color: black;
       color: white;
@@ -68,6 +72,7 @@ export default {
       height: 6rem;
       margin: 1rem;
       border-radius: 1.5rem;
+
       &:hover {
         background-color: white;
         color: black;
