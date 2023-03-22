@@ -1,7 +1,8 @@
 <template>
   <div class="screen">
     <div class="grid gap-4" :class="`grid-cols-${config.cols}`">
-      <Card v-for="(card, index) in config.allCards" :key="index" :card="card" @onFlip="onFlipCard($event)" />
+      <Card v-for="(cardName, index) in config.allCards" @onFlip="onFlipCard($event)" :key="index"
+        :card="{ id: index, value: cardName }" :ref="`card-${index}`" :flippedCards="flippedCards" />
     </div>
   </div>
 </template>
@@ -30,10 +31,21 @@ export default {
       this.flippedCards.push(card);
 
       if (this.flippedCards.length === 2) {
-        if (this.flippedCards[0] === this.flippedCards[1]) {
-          
+        if (this.flippedCards[0].value === this.flippedCards[1].value) {
+          console.log("Matched");
+          setTimeout(() => {
+            this.$refs[`card-${this.flippedCards[0].id}`][0].onHidden();
+            this.$refs[`card-${this.flippedCards[1].id}`][0].onHidden();
+            this.flippedCards = [];
+          }, 600);
         } else {
-          
+          console.log("Not Matched");
+          setTimeout(() => {
+            this.$refs[`card-${this.flippedCards[0].id}`][0].onFlipBack();
+            this.$refs[`card-${this.flippedCards[1].id}`][0].onFlipBack();
+
+            this.flippedCards = [];
+          }, 600);
         }
       }
     },

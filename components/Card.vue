@@ -1,8 +1,9 @@
 <template>
   <div class="card">
-    <div class="card-inner" @click="onFlip" :class="{ flipped: isFlipped }">
+    <div class="card-inner" @click="onFlip"
+      :class="{ 'flipped': isFlipped, 'hidden': isHidden, 'cursor-pointer': !isDisabled }">
       <div class="card-face card-front shadow-sm">
-        <nuxt-img class="flipped" :src="`/images/pocket-monsters/${card}.png`" />
+        <nuxt-img class="[transform: rotateY(180deg)]" :src="`/images/pocket-monsters/${card.value}.png`" />
       </div>
       <div class="card-face card-back shadow-sm">
         <div class="card-content"></div>
@@ -16,20 +17,37 @@
 export default {
   props: {
     card: {
-      type: [String, Number, Array, Object],
-      default: 0,
-    }
+      type: Object,
+    },
+    flippedCards: {
+      type: Array,
+    },
   },
   data() {
     return {
       isFlipped: false,
+      isDisabled: false,
+      isHidden: false,
     }
   },
   methods: {
     onFlip() {
+      if (this.flippedCards.length >= 2) return;
+      if (this.isDisabled) return;
+
       this.isFlipped = true;
+      this.isDisabled = true;
       if (this.isFlipped) this.$emit("onFlip", this.card);
-    }
+    },
+
+    onFlipBack() {
+      this.isFlipped = false;
+      this.isDisabled = false;
+    },
+
+    onHidden() {
+      this.isHidden = true;
+    },
   },
 }
 </script>
@@ -50,7 +68,6 @@ export default {
     position: relative;
     transition: all 0.5s;
     transform-style: preserve-3d;
-    cursor: pointer;
     border-radius: 0.75rem;
 
     .card-face {
