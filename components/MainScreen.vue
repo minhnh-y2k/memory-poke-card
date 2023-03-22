@@ -6,7 +6,7 @@
       <button @click="onStart(4, 4)" class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">4x4</span>
       </button>
-      <button @click="onStart(4, 6)" class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
+      <button @click="onStart(4, 8)" class="flex flex-col justify-center items-center w-36 h-36 rounded-3xl border-2 m-4">
         <span class="text-3xl">4x8</span>
       </button>
       <button @click="onStart(5, 10)"
