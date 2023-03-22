@@ -1,5 +1,9 @@
 <template>
-  <div class="container min-w-full min-h-screen flex justify-center items-center">
+  <div class="container relative min-w-full min-h-screen flex justify-center items-center">
+    <button @click="onStartAgain"
+      class="absolute top-0 left-0 text-2xl text-white p-3 m-2 border-2 rounded-xl transition-all duration-300 hover:bg-white hover:text-black">
+      Home
+    </button>
     <div class="grid gap-4" :class="{
       'grid-cols-3': config.cols === 3,
       'grid-cols-4': config.cols === 4,
@@ -62,7 +66,11 @@ export default {
           }, 600);
         }
       }
-    }
+    },
+
+    onStartAgain() {
+      this.$emit('onStartAgain');
+    },
   }
 }
 </script>

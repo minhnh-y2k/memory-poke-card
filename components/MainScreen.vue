@@ -13,9 +13,9 @@
         class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
         <span class="text-3xl">6x4</span>
       </button>
-      <button @click="onStart(8, 4)"
+      <button @click="onStart(7, 4)"
         class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
-        <span class="text-3xl">8x4</span>
+        <span class="text-3xl">7x4</span>
       </button>
       <button @click="onStart(4, 4)"
         class="hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">

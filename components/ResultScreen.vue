@@ -3,7 +3,7 @@
     <h1 class="text-7xl md:text-9xl font-bold">Congratulations</h1>
     <p class="text-4xl">Time: {{ formatTime(timer) }}</p>
     <button @click="onStartAgain"
-      class="text-3xl p-3 mt-10 border-2 rounded-xl transition-all duration-300 hover:bg-white hover:text-black">
+      class="text-3xl p-3 mt-10 border-2 rounded-xl transition-all duration-300 text-white hover:bg-white hover:text-black">
       Start Again
     </button>
   </div>

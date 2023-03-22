@@ -1,7 +1,8 @@
 <template>
   <MainScreen @on-starts="onHandleBeforeStart($event)" v-if="statusMatch === 'default'" />
-  <InteractScreen v-if="statusMatch === 'match'" :config="config" @onFinish="onGetResult()" />
-  <ResultScreen v-if="statusMatch === 'result'" :timer="timer" @onStartAgain="statusMatch = 'default'"/>
+  <InteractScreen v-if="statusMatch === 'match'" :config="config" @onFinish="onGetResult()"
+    @onStartAgain="statusMatch = 'default'" />
+  <ResultScreen v-if="statusMatch === 'result'" :timer="timer" @onStartAgain="statusMatch = 'default'" />
 </template>
 
 <script>
