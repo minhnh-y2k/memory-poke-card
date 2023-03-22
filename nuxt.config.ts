@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@/assets/styles/main.scss',
   ],
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image-edge',
   ],
   vite: {
     css: {

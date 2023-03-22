@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-inner" @click="onFlip" :class="{ flipped: isFlip }">
       <div class="card-face card-front">
-        <div class="card-content flipped"></div>
+        <nuxt-img class="flipped" :src="imageUrl" />
       </div>
       <div class="card-face card-back">
         <div class="card-content"></div>
@@ -15,8 +15,9 @@
 <script>
 export default {
   props: {
-    card: {
-      type: [Array, String, Number, Object],
+    imageUrl: {
+      type: String,
+      default: '',
     },
   },
   data() {
@@ -40,6 +41,7 @@ export default {
   height: 6rem;
   width: 6rem;
   perspective: 1000px;
+  user-select: none;
 
   .card-inner {
     height: 100%;
@@ -57,18 +59,18 @@ export default {
       border-radius: 0.75rem;
       background-color: #fff;
       border-radius: 0.75rem;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       >.card-content {
         background-size: cover;
         background-position: center;
-        height: 100%;
-        width: 100%;
-      }
-
-      &.card-front {
-        .card-content {
-          background-image: url('~/assets/images/1.png');
-        }
+        background-repeat: no-repeat;
+        
+        height: 50%;
+        width: 50%;
       }
 
       &.card-back {
