@@ -1,12 +1,13 @@
 <template>
-  <div class="group h-24 w-24 [perpective: 1000px]">
+  <div class="card group h-24 w-24 [perpective: 1000px]">
     <div @click="onFlip" :class="{ flipped: isFlip }"
-      class="relative h-full w-full rounded-xl shadow-xl transition-all cursor-pointer duration-500 [transform-style:preserve-3d]">
-      <div class="absolute inset-0 bg-white rounded-xl">
-        <img src="~/assets/images/1.png" class="h-full w-full object-cover shadow-xl shadow-black/40 flipped">
+      class="card-inner relative h-full w-full rounded-xl shadow-xl transition-all cursor-pointer duration-500 [transform-style:preserve-3d]">
+      <div class="card-front absolute inset-0 bg-white rounded-xl">
+        <div class="card-content flipped h-full w-full object-cover shadow-xl shadow-black/40"
+          :style="{ backgroundImage: `url('@/assets/images/${card}.png')')` }"></div>
       </div>
-      <div class="absolute inset-0 bg-white rounded-xl h-full w-full [backface-visibility:hidden]">
-        <img src="~/assets/images/icon_back.png" class="h-full w-full object-cover shadow-xl shadow-black/40 " alt="">
+      <div class="card-back absolute inset-0 bg-white rounded-xl h-full w-full [backface-visibility:hidden]">
+        <div class="card-content h-full w-full object-cover shadow-xl shadow-black/40"></div>
       </div>
     </div>
   </div>
@@ -15,6 +16,11 @@
 
 <script>
 export default {
+  props: {
+    card: {
+      type: [Array, String, Number, Object],
+    },
+  },
   data() {
     return {
       isFlip: false,
@@ -30,5 +36,14 @@ export default {
 <style scoped>
 .flipped {
   transform: rotateY(180deg);
+}
+.card-front .card-content {
+  background-size: cover;
+  background-position: center;
+}
+.card-back .card-content {
+  background-image: url('~/assets/images/icon_back.png');
+  background-size: cover;
+  background-position: center;
 }
 </style>
