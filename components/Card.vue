@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div class="card-inner" @click="onFlip" :class="{ flipped: isFlip }">
+    <div class="card-inner" @click="onFlip" :class="{ flipped: isFlipped }">
       <div class="card-face card-front shadow-sm">
-        <nuxt-img class="flipped" :src="imageUrl" />
+        <nuxt-img class="flipped" :src="`/images/pocket-monsters/${card}.png`" />
       </div>
       <div class="card-face card-back shadow-sm">
         <div class="card-content"></div>
@@ -15,19 +15,20 @@
 <script>
 export default {
   props: {
-    imageUrl: {
-      type: String,
-      default: '',
-    },
+    card: {
+      type: [String, Number, Array, Object],
+      default: 0,
+    }
   },
   data() {
     return {
-      isFlip: false,
+      isFlipped: false,
     }
   },
   methods: {
     onFlip() {
-      this.isFlip = true;
+      this.isFlipped = true;
+      if (this.isFlipped) this.$emit("onFlip", this.card);
     }
   },
 }
