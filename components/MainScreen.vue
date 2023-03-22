@@ -43,7 +43,7 @@
       </button>
     </div>
     <p class="fixed bottom-4 left-0 right-0 text-2xl">This game owned by
-      <a class="text-blue-600 hover:text-purple-600 underline" href="https://github.com/minhnh-y2k">Nguyen Hoai Minh</a>
+      <a class="text-cyan-400 font-bold hover:text-purple-600 underline" target="_blank" href="https://github.com/minhnh-y2k">Nguyen Hoai Minh</a>
     </p>
   </div>
 </template>
