@@ -4,16 +4,16 @@
     <p>Select mode to start game</p>
     <div class="modes">
       <button @click="onStart(4, 4)">
-        <span class="text-3xl">4x4</span>
+        <span>4x4</span>
       </button>
       <button @click="onStart(4, 8)">
-        <span class="text-3xl">4x8</span>
+        <span>4x8</span>
       </button>
       <button @click="onStart(5, 10)" class="hidden xl:block">
-        <span class="text-3xl">5x10</span>
+        <span>5x10</span>
       </button>
       <button @click="onStart(6, 12)" class="hidden xl:block">
-        <span class="text-3xl">6x12</span>
+        <span>6x12</span>
       </button>
     </div>
   </div>
