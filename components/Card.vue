@@ -7,7 +7,7 @@
         <nuxt-img class="[transform: rotateY(180deg)]" :src="`/images/pocket-monsters/${card.value}.png`" />
       </div>
       <div
-        class="flex justify-center items-center absolute inset-0 bg-white rounded-xl shadow-sm [backface-visibility:hidden]">
+        class="flex justify-center items-center absolute inset-0 bg-cyan-100 rounded-xl shadow-sm [backface-visibility:hidden]">
         <div class="card-back h-3/6 w-3/6 bg-cover bg-center"></div>
       </div>
     </div>
