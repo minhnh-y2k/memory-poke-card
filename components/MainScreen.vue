@@ -1,7 +1,7 @@
 36 lines (33 sloc)  1.22 KB
 
 <template>
-  <div class="container min-w-full min-h-screen flex flex-col justify-center items-center text-white text-center p-2">
+  <div class="container relative min-w-full min-h-screen flex flex-col justify-center items-center text-white text-center p-2">
     <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
     <p class="text-3xl">Select mode to start game</p>
     <div class="mt-8 flex">
@@ -42,6 +42,9 @@
         <span class="text-3xl">6x12</span>
       </button>
     </div>
+    <p class="fixed bottom-4 left-0 right-0 text-2xl">This game owned by
+      <a class="text-blue-600 hover:text-purple-600 underline" href="https://github.com/minhnh-y2k">Nguyen Hoai Minh</a>
+    </p>
   </div>
 </template>
 
