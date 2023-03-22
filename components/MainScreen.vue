@@ -5,12 +5,32 @@
     <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
     <p class="text-3xl">Select mode to start game</p>
     <div class="mt-8 flex">
+      <button @click="onStart(4, 3)"
+        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">4x3</span>
+      </button>
+      <button @click="onStart(6, 4)"
+        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">6x4</span>
+      </button>
+      <button @click="onStart(8, 4)"
+        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">8x4</span>
+      </button>
       <button @click="onStart(4, 4)"
-        class="flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
         <span class="text-3xl">4x4</span>
       </button>
+      <button @click="onStart(6, 5)"
+        class="hidden xl:hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">6x5</span>
+      </button>
+      <button @click="onStart(8, 6)"
+        class="hidden xl:hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">8x6</span>
+      </button>
       <button @click="onStart(4, 8)"
-        class="flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="hidden xl:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
         <span class="text-3xl">4x8</span>
       </button>
       <button @click="onStart(5, 10)"

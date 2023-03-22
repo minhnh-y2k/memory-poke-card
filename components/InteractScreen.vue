@@ -1,6 +1,14 @@
 <template>
   <div class="container min-w-full min-h-screen flex justify-center items-center">
-    <div class="grid gap-4" :class="`grid-cols-${config.cols}`">
+    <div class="grid gap-4" :class="{
+      'grid-cols-3': config.cols === 3,
+      'grid-cols-4': config.cols === 4,
+      'grid-cols-5': config.cols === 5,
+      'grid-cols-6': config.cols === 6,
+      'grid-cols-8': config.cols === 8,
+      'grid-cols-10': config.cols === 10,
+      'grid-cols-12': config.cols === 12,
+    }">
       <Card v-for="(cardName, index) in config.allCards" @onFlip="onFlipCard($event)" :key="index"
         :card="{ id: index, value: cardName }" :ref="`card-${index}`" :flippedCards="flippedCards" />
     </div>
@@ -54,7 +62,7 @@ export default {
           }, 600);
         }
       }
-    },
+    }
   }
 }
 </script>

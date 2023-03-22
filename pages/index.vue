@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      statusMatch: "result",
+      statusMatch: "default",
       timer: 0,
       startedAt: 0,
       config: {
