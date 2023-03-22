@@ -1,5 +1,5 @@
 <template>
-  <div class="screen w-full h-screen bg-black text-white flex justify-center items-center">
+  <div class="screen">
     <div class="grid gap-4" :class="`grid-cols-${config.cols}`">
       <Card v-for="(card, index) in config.allCards" />
     </div>
@@ -23,4 +23,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
