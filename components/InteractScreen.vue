@@ -9,8 +9,6 @@
 
 <script>
 export default {
-  emits: ["onFinish"],
-
   props: {
     config: {
       type: Object,
@@ -35,7 +33,6 @@ export default {
 
       if (this.flippedCards.length === 2) {
         if (this.flippedCards[0].value === this.flippedCards[1].value) {
-          console.log("Matched");
           setTimeout(() => {
             this.$refs[`card-${this.flippedCards[0].id}`][0].onHidden();
             this.$refs[`card-${this.flippedCards[1].id}`][0].onHidden();
@@ -49,7 +46,6 @@ export default {
             this.flippedCards = [];
           }, 800);
         } else {
-          console.log("Not Matched");
           setTimeout(() => {
             this.$refs[`card-${this.flippedCards[0].id}`][0].onFlipBack();
             this.$refs[`card-${this.flippedCards[1].id}`][0].onFlipBack();

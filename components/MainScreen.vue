@@ -2,7 +2,7 @@
 
 <template>
   <div class="w-full h-screen flex flex-col justify-center items-center bg-black text-white text-center p-2">
-    <h1 class="text-6xl uppercase font-bold m-0">Memory Poke Card</h1>
+    <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
     <p class="text-3xl">Select mode to start game</p>
     <div class="mt-8 flex">
       <button @click="onStart(4, 4)"
@@ -27,8 +27,6 @@
 
 <script>
 export default {
-  emits: ['onStarts'],
-
   methods: {
     onStart(rows, cols) {
       this.$emit('onStarts', { rows, cols });
