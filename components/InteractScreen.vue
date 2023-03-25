@@ -6,7 +6,7 @@
     </button>
     <div class="grid gap-4" :class="gridColsClass">
       <Card v-for="(cardName, cardId) in config.allCards" @onFlip="onFlipCard($event)" :key="cardId"
-        :card="{ id: cardId, value: cardName }" :ref="`card-${cardId}`" :flippedCards="flippedCards" />
+        :card="{ id: cardId, value: cardName }" ref="cardRefs" :flippedCards="flippedCards" />
     </div>
   </div>
 </template>
@@ -38,8 +38,11 @@ export default {
       if (this.flippedCards.length === 2) {
         if (this.flippedCards[0].value === this.flippedCards[1].value) {
           setTimeout(() => {
-            this.$refs[`card-${this.flippedCards[0].id}`][0].onHidden();
-            this.$refs[`card-${this.flippedCards[1].id}`][0].onHidden();
+            this.$refs.cardRefs.forEach((cardRef) => {
+              if (cardRef.card.id === this.flippedCards[0].id || cardRef.card.id === this.flippedCards[1].id) {
+                cardRef.onHidden();
+              }
+            });
 
             this.countMatchedCards += 2;
 
@@ -51,8 +54,11 @@ export default {
           }, 800);
         } else {
           setTimeout(() => {
-            this.$refs[`card-${this.flippedCards[0].id}`][0].onFlipBack();
-            this.$refs[`card-${this.flippedCards[1].id}`][0].onFlipBack();
+            this.$refs.cardRefs.forEach((cardRef) => {
+              if (cardRef.card.id === this.flippedCards[0].id || cardRef.card.id === this.flippedCards[1].id) {
+                cardRef.onFlipBack();
+              }
+            });
 
             this.flippedCards = [];
           }, 600);
