@@ -4,17 +4,9 @@
       class="absolute top-0 left-0 text-2xl text-white p-3 m-2 border-2 rounded-xl transition-all duration-300 hover:bg-white hover:text-black">
       Home
     </button>
-    <div class="grid gap-4" :class="{
-      'grid-cols-3': config.cols === 3,
-      'grid-cols-4': config.cols === 4,
-      'grid-cols-5': config.cols === 5,
-      'grid-cols-6': config.cols === 6,
-      'grid-cols-8': config.cols === 8,
-      'grid-cols-10': config.cols === 10,
-      'grid-cols-12': config.cols === 12,
-    }">
-      <Card v-for="(cardName, index) in config.allCards" @onFlip="onFlipCard($event)" :key="index"
-        :card="{ id: index, value: cardName }" :ref="`card-${index}`" :flippedCards="flippedCards" />
+    <div class="grid gap-4" :class="gridColsClass">
+      <Card v-for="(cardName, cardId) in config.allCards" @onFlip="onFlipCard($event)" :key="cardId"
+        :card="{ id: cardId, value: cardName }" :ref="`card-${cardId}`" :flippedCards="flippedCards" />
     </div>
   </div>
 </template>
@@ -71,7 +63,22 @@ export default {
     onStartAgain() {
       this.$emit('onStartAgain');
     },
-  }
+  },
+
+  computed: {
+    gridColsClass() {
+      return {
+        "grid-cols-2": this.config.cols === 2,
+        "grid-cols-3": this.config.cols === 3,
+        "grid-cols-4": this.config.cols === 4,
+        "grid-cols-5": this.config.cols === 5,
+        "grid-cols-6": this.config.cols === 6,
+        "grid-cols-8": this.config.cols === 8,
+        "grid-cols-10": this.config.cols === 10,
+        "grid-cols-12": this.config.cols === 12,
+      }
+    },
+  },
 }
 </script>
 

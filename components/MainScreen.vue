@@ -1,5 +1,3 @@
-36 lines (33 sloc)  1.22 KB
-
 <template>
   <div class="container relative min-w-full min-h-screen flex flex-col justify-center items-center text-white text-center p-2">
     <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
