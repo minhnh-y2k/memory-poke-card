@@ -6,7 +6,7 @@
     </button>
     <div class="grid gap-4" :class="gridColsClass">
       <Card v-for="(cardName, cardId) in config.allCards" @onFlip="onFlipCard($event)" :key="cardId"
-        :card="{ id: cardId, value: cardName }" ref="cardRefs" :flippedCards="flippedCards" />
+        :card="{ id: cardId, name: cardName }" ref="cardRefs" :flippedCards="flippedCards" />
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
       this.flippedCards.push(card);
 
       if (this.flippedCards.length === 2) {
-        if (this.flippedCards[0].value === this.flippedCards[1].value) {
+        if (this.flippedCards[0].name === this.flippedCards[1].name) {
           setTimeout(() => {
             this.$refs.cardRefs.forEach((cardRef) => {
               if (cardRef.card.id === this.flippedCards[0].id || cardRef.card.id === this.flippedCards[1].id) {

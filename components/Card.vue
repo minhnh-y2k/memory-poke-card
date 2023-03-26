@@ -5,7 +5,7 @@
       @click="onFlip" :class="{ 'flipped': isFlipped, 'hidden': isHidden, 'cursor-pointer': !isDisabled }">
       <div class="flex justify-center items-center card-front absolute inset-0 bg-white rounded-xl shadow-sm">
         <!-- <img class="[transform: rotateY(180deg)]" :src="`/images/pocket-monsters/${card.value}.png`" /> -->
-        <div class="h-full w-full bg-cover bg-center" :style="{backgroundImage: `url(/images/pocket-monsters/${card.value}.png)`}"></div>
+        <div class="h-full w-full bg-cover bg-center" :style="{backgroundImage: `url(/images/pocket-monsters/${card.name}.png)`}"></div>
       </div>
       <div
         class="flex justify-center items-center absolute inset-0 bg-cyan-100 rounded-xl shadow-sm [backface-visibility:hidden]">
@@ -20,10 +20,12 @@ export default {
   props: {
     card: {
       type: Object,
+      default: () => ({
+        id: 0,
+        name: "",
+      }),
     },
-    flippedCards: {
-      type: Array,
-    },
+    flippedCards: Array,
   },
   data() {
     return {
