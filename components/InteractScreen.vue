@@ -5,20 +5,20 @@
       Home
     </button>
     <div class="grid gap-4" :class="gridColsClass">
-      <Card v-for="(cardName, cardId) in config.allCards" @onFlip="onFlipCard($event)" :key="cardId"
+      <Card v-for="(cardName, cardId) in cards" @onFlip="onFlipCard($event)" :key="cardId"
         :card="{ id: cardId, name: cardName }" ref="cardRefs" :flippedCards="flippedCards" />
     </div>
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   props: {
     config: {
       type: Object,
       default: () => ({
         cols: 0,
-        allCards: [],
+        cards: [],
       }),
     },
   },
@@ -46,7 +46,7 @@ export default {
 
             this.countMatchedCards += 2;
 
-            if (this.countMatchedCards === this.config.allCards.length) {
+            if (this.countMatchedCards === this.config.cards.length) {
               this.$emit("onFinish");
             }
 
@@ -86,6 +86,67 @@ export default {
     },
   },
 }
+</script> -->
+<script setup>
+
+const emit = defineEmits(['onFinish', 'onStartAgain']);
+const { cols, cards } = useConfig();
+const flippedCards = ref([]);
+const countMatchedCards = ref(0);
+
+const cardRefs = ref([]);
+
+const onFlipCard = (card) => {
+  if (flippedCards.value.length >= 2) return;
+  flippedCards.value.push(card);
+
+  if (flippedCards.value.length === 2) {
+    if (flippedCards.value[0].name === flippedCards.value[1].name) {
+      setTimeout(() => {
+        cardRefs.value.forEach((cardRef) => {
+          if (cardRef.props.card.id === flippedCards.value[0].id || cardRef.props.card.id === flippedCards.value[1].id) {
+            cardRef.onHidden();
+          }
+        });
+
+        countMatchedCards.value += 2;
+
+        if (countMatchedCards.value === cards.value.length) {
+          emit('onFinish')
+        }
+
+        flippedCards.value = [];
+      }, 800);
+    } else {
+      setTimeout(() => {
+        cardRefs.value.forEach((cardRef) => {
+          if (cardRef.props.card.id === flippedCards.value[0].id || cardRef.props.card.id === flippedCards.value[1].id) {
+            cardRef.onFlipBack();
+          }
+        });
+
+        flippedCards.value = [];
+      }, 600);
+    }
+  }
+}
+
+const onStartAgain = () => {
+  emit('onStartAgain');
+}
+
+const gridColsClass = computed(() => {
+  return {
+    "grid-cols-2": cols.value === 2,
+    "grid-cols-3": cols.value === 3,
+    "grid-cols-4": cols.value === 4,
+    "grid-cols-5": cols.value === 5,
+    "grid-cols-6": cols.value === 6,
+    "grid-cols-8": cols.value === 8,
+    "grid-cols-10": cols.value === 10,
+    "grid-cols-12": cols.value === 12,
+  }
+})
 </script>
 
 <style lang="scss" scoped>

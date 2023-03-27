@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 import moment from 'moment';
 
 export default {
@@ -31,6 +31,19 @@ export default {
       this.$emit('onStartAgain');
     },
   }
+}
+</script> -->
+<script setup>
+import moment from 'moment';
+
+const { timer } = useConfig();
+const emit = defineEmits(['onStartAgain']);
+
+const formatTime = (time) => {
+  return moment(time).format('mm:ss');
+}
+const onStartAgain = () => {
+  emit('onStartAgain');
 }
 </script>
 

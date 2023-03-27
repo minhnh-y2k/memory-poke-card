@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   props: {
     card: {
@@ -54,7 +54,48 @@ export default {
     },
   },
 }
+</script> -->
+
+<script setup>
+const props = defineProps({
+  card: {
+    type: Object,
+    default: () => ({
+      id: 0,
+      name: "",
+    }),
+  },
+  flippedCards: Array,
+})
+const emits = defineEmits(['onFlip'])
+
+const isFlipped = ref(false)
+const isDisabled = ref(false)
+const isHidden = ref(false)
+
+const onFlip = () => {
+  if (props.flippedCards.length >= 2) return;
+  if (isDisabled.value) return;
+
+  isFlipped.value = true;
+  isDisabled.value = true;
+  if (isFlipped.value) emits('onFlip', props.card);
+}
+const onFlipBack = () => {
+  isFlipped.value = false;
+  isDisabled.value = false;
+}
+const onHidden = () => {
+  isHidden.value = true;
+}
+
+defineExpose({
+  props,
+  onFlipBack,
+  onHidden,
+})
 </script>
+
 <style lang="scss" scoped>
 .flipped {
   transform: rotateY(180deg);

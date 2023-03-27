@@ -3,6 +3,11 @@
     <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
     <p class="text-3xl">Select mode to start game</p>
     <div class="mt-8 flex">
+      <button @click="onStart(2, 2)"
+        class="flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        <span class="text-3xl">2x2</span>
+      </button>
+
       <button @click="onStart(4, 3)"
         class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
         <span class="text-3xl">4x3</span>
@@ -46,13 +51,20 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   methods: {
     onStart(rows, cols) {
       this.$emit('onStarts', { rows, cols });
     }
   }
+}
+</script> -->
+<script setup>
+const emit = defineEmits(['onStarts']);
+
+const onStart = (rows, cols) => {
+  emit('onStarts', { rows, cols });
 }
 </script>
 
