@@ -1,14 +1,19 @@
 <template>
-  <div class="h-20 w-20 md:h-24 md:w-24 select-none [perpective: 1000px]">
-    <div
-      class="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d]"
-      @click="onFlip" :class="{ 'flipped': isFlipped, 'hidden': isHidden, 'cursor-pointer': !isDisabled }">
-      <div class="flex justify-center items-center card-front absolute inset-0 bg-white rounded-xl shadow-sm">
+  <div class="[perpective: 1000px] h-20 w-20 select-none md:h-24 md:w-24">
+    <div class="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d]"
+      @click="onFlip" :class="{
+        flipped: isFlipped,
+        hidden: isHidden,
+        'cursor-pointer': !isDisabled,
+      }">
+      <div class="card-front absolute inset-0 flex items-center justify-center rounded-xl bg-white shadow-sm">
         <!-- <img class="[transform: rotateY(180deg)]" :src="`/images/pocket-monsters/${card.value}.png`" /> -->
-        <div class="h-full w-full bg-cover bg-center" :style="{backgroundImage: `url(/images/pocket-monsters/${card.name}.png)`}"></div>
+        <div class="h-full w-full bg-cover bg-center" :style="{
+          backgroundImage: `url(/images/pocket-monsters/${card.name}.png)`,
+        }"></div>
       </div>
       <div
-        class="flex justify-center items-center absolute inset-0 bg-cyan-100 rounded-xl shadow-sm [backface-visibility:hidden]">
+        class="absolute inset-0 flex items-center justify-center rounded-xl bg-cyan-100 shadow-sm [backface-visibility:hidden]">
         <div class="card-back h-3/6 w-3/6 bg-cover bg-center"></div>
       </div>
     </div>
@@ -66,12 +71,12 @@ const props = defineProps({
     }),
   },
   flippedCards: Array,
-})
-const emits = defineEmits(['onFlip'])
+});
+const emits = defineEmits(["onFlip"]);
 
-const isFlipped = ref(false)
-const isDisabled = ref(false)
-const isHidden = ref(false)
+const isFlipped = ref(false);
+const isDisabled = ref(false);
+const isHidden = ref(false);
 
 const onFlip = () => {
   if (props.flippedCards.length >= 2) return;
@@ -79,21 +84,21 @@ const onFlip = () => {
 
   isFlipped.value = true;
   isDisabled.value = true;
-  if (isFlipped.value) emits('onFlip', props.card);
-}
+  if (isFlipped.value) emits("onFlip", props.card);
+};
 const onFlipBack = () => {
   isFlipped.value = false;
   isDisabled.value = false;
-}
+};
 const onHidden = () => {
   isHidden.value = true;
-}
+};
 
 defineExpose({
   props,
   onFlipBack,
   onHidden,
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -102,6 +107,6 @@ defineExpose({
 }
 
 .card-back {
-  background-image: url('../assets/images/icon_back.png');
+  background-image: url("../assets/images/icon_back.png");
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="container relative min-w-full min-h-screen flex justify-center items-center">
+  <div class="container relative flex min-h-screen min-w-full items-center justify-center">
     <button @click="onStartAgain"
-      class="absolute top-0 left-0 text-2xl text-white p-3 m-2 border-2 rounded-xl transition-all duration-300 hover:bg-white hover:text-black">
+      class="absolute top-0 left-0 m-2 rounded-xl border-2 p-3 text-2xl text-white transition-all duration-300 hover:bg-white hover:text-black">
       Home
     </button>
     <div class="grid gap-4" :class="gridColsClass">
@@ -88,8 +88,7 @@ export default {
 }
 </script> -->
 <script setup>
-
-const emit = defineEmits(['onFinish', 'onStartAgain']);
+const emit = defineEmits(["onFinish", "onStartAgain"]);
 const { cols, cards } = useConfig();
 const flippedCards = ref([]);
 const countMatchedCards = ref(0);
@@ -104,7 +103,10 @@ const onFlipCard = (card) => {
     if (flippedCards.value[0].name === flippedCards.value[1].name) {
       setTimeout(() => {
         cardRefs.value.forEach((cardRef) => {
-          if (cardRef.props.card.id === flippedCards.value[0].id || cardRef.props.card.id === flippedCards.value[1].id) {
+          if (
+            cardRef.props.card.id === flippedCards.value[0].id ||
+            cardRef.props.card.id === flippedCards.value[1].id
+          ) {
             cardRef.onHidden();
           }
         });
@@ -112,7 +114,7 @@ const onFlipCard = (card) => {
         countMatchedCards.value += 2;
 
         if (countMatchedCards.value === cards.value.length) {
-          emit('onFinish')
+          emit("onFinish");
         }
 
         flippedCards.value = [];
@@ -120,7 +122,10 @@ const onFlipCard = (card) => {
     } else {
       setTimeout(() => {
         cardRefs.value.forEach((cardRef) => {
-          if (cardRef.props.card.id === flippedCards.value[0].id || cardRef.props.card.id === flippedCards.value[1].id) {
+          if (
+            cardRef.props.card.id === flippedCards.value[0].id ||
+            cardRef.props.card.id === flippedCards.value[1].id
+          ) {
             cardRef.onFlipBack();
           }
         });
@@ -129,11 +134,11 @@ const onFlipCard = (card) => {
       }, 600);
     }
   }
-}
+};
 
 const onStartAgain = () => {
-  emit('onStartAgain');
-}
+  emit("onStartAgain");
+};
 
 const gridColsClass = computed(() => {
   return {
@@ -145,13 +150,15 @@ const gridColsClass = computed(() => {
     "grid-cols-8": cols.value === 8,
     "grid-cols-10": cols.value === 10,
     "grid-cols-12": cols.value === 12,
-  }
-})
+  };
+});
 </script>
 
 <style lang="scss" scoped>
 .container {
-  background-image: linear-gradient(rgba(50, 61, 104, 0.5), rgba(44, 119, 118, 0.5)), url('../assets/images/bg_play.jpg');
+  background-image: linear-gradient(rgba(50, 61, 104, 0.5),
+      rgba(44, 119, 118, 0.5)),
+    url("../assets/images/bg_play.jpg");
   background-size: cover;
   background-position: center;
 }

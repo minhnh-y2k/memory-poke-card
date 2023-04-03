@@ -1,52 +1,57 @@
 <template>
-  <div class="container relative min-w-full min-h-screen flex flex-col justify-center items-center text-white text-center p-2">
-    <h1 class="text-7xl md:text-9xl uppercase font-bold m-0 md:mb-20">Memory Poke Card</h1>
+  <div
+    class="container relative flex min-h-screen min-w-full flex-col items-center justify-center p-2 text-center text-white">
+    <h1 class="m-0 text-7xl font-bold uppercase md:mb-20 md:text-9xl">
+      Memory Poke Card
+    </h1>
     <p class="text-3xl">Select mode to start game</p>
     <div class="mt-8 flex">
       <button @click="onStart(2, 2)"
-        class="flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 flex h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black">
         <span class="text-3xl">2x2</span>
       </button>
 
       <button @click="onStart(4, 3)"
-        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-2 flex h-24 w-24 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:hidden">
         <span class="text-3xl">4x3</span>
       </button>
       <button @click="onStart(6, 4)"
-        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-2 flex h-24 w-24 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:hidden">
         <span class="text-3xl">6x4</span>
       </button>
       <button @click="onStart(7, 4)"
-        class="md:hidden flex flex-col justify-center items-center w-24 h-24 rounded-3xl border-2 m-2 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-2 flex h-24 w-24 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:hidden">
         <span class="text-3xl">7x4</span>
       </button>
       <button @click="onStart(4, 4)"
-        class="hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:flex">
         <span class="text-3xl">4x4</span>
       </button>
       <button @click="onStart(6, 5)"
-        class="hidden xl:hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:flex xl:hidden">
         <span class="text-3xl">6x5</span>
       </button>
       <button @click="onStart(8, 6)"
-        class="hidden xl:hidden md:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black md:flex xl:hidden">
         <span class="text-3xl">8x6</span>
       </button>
       <button @click="onStart(4, 8)"
-        class="hidden xl:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black xl:flex">
         <span class="text-3xl">4x8</span>
       </button>
       <button @click="onStart(5, 10)"
-        class="hidden xl:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black xl:flex">
         <span class="text-3xl">5x10</span>
       </button>
       <button @click="onStart(6, 12)"
-        class="hidden xl:flex flex-col justify-center items-center w-28 h-28 rounded-3xl border-2 m-4 transition-all ease-in-out duration-300 hover:bg-white hover:text-black">
+        class="m-4 hidden h-28 w-28 flex-col items-center justify-center rounded-3xl border-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-black xl:flex">
         <span class="text-3xl">6x12</span>
       </button>
     </div>
-    <p class="fixed bottom-4 left-0 right-0 text-2xl">This game owned by
-      <a class="text-cyan-400 font-bold hover:text-purple-600 underline" target="_blank" href="https://github.com/minhnh-y2k">Nguyen Hoai Minh</a>
+    <p class="fixed bottom-4 left-0 right-0 text-2xl">
+      This game owned by
+      <a class="font-bold text-cyan-400 underline hover:text-purple-600" target="_blank"
+        href="https://github.com/minhnh-y2k">Nguyen Hoai Minh</a>
     </p>
   </div>
 </template>
@@ -61,16 +66,17 @@ export default {
 }
 </script> -->
 <script setup>
-const emit = defineEmits(['onStarts']);
+const emit = defineEmits(["onStarts"]);
 
 const onStart = (rows, cols) => {
-  emit('onStarts', { rows, cols });
-}
+  emit("onStarts", { rows, cols });
+};
 </script>
 
 <style lang="scss" scoped>
 .container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/bg.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/images/bg.png");
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: scroll;
