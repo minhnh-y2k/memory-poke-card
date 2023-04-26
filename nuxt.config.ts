@@ -8,6 +8,14 @@ export default defineNuxtConfig({
           name: 'google-site-verification',
           content: 'VXBEISxR68bb7rPEW30GmJTzv4mfhA4lz7XzlHIYG_Y'
         },
+        {
+          name: 'title',
+          content: 'Memory Poke Card',
+        },
+        {
+          name: 'description',
+          content: 'Memory Poke Card is a memory game with Pokemon cards. Find all the pairs of cards in the shortest possible time.'
+        },
       ],
 
     }
